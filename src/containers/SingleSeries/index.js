@@ -9,9 +9,9 @@ class SingleSeries extends Component {
 
     componentDidMount(){
 
-        const { id } = this.props.params.match.id
+        const { id } = this.props.match.params
 
-        fetch(`http://api.tvmaze.com/shows/29?embeded=episodes`)
+        fetch(`http://api.tvmaze.com/shows/${29}?embed=episodes`)
             .then(response => response.json())
             .then(json => this.setState({ show: json }))
     }
@@ -30,7 +30,7 @@ class SingleSeries extends Component {
                 {
                     show !== null
                     &&
-                    <p>Show has been loaded - {this.props.params.match.id}</p>
+                    <p>Show has been loaded - {this.props.match.params.id}</p>
                 }
             </div>
         )
